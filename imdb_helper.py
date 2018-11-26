@@ -17,7 +17,10 @@ class IMDb_Movie():
             self.movie = None
 
     def get_director_names(self):
-        pass
+        if (self.movie != None):
+            return sorted([direc['name'] for direc in self.movie['directors']])
+        else:
+            return []
 
     def get_full_title(self):
         if (self.movie != None):
