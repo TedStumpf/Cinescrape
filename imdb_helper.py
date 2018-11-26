@@ -20,7 +20,13 @@ class IMDb_Movie():
         pass
 
     def get_full_title(self):
-        pass
+        if (self.movie != None):
+            if ('title' in self.movie.keys()):
+                return self.movie['title']
+            else:
+                return "No title found"
+        else:
+            return "No movie found"
 
     def get_actors(self):
         pass
