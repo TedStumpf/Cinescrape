@@ -31,8 +31,15 @@ class IMDb_Movie():
         else:
             return "No movie found"
 
-    def get_actors(self):
-        pass
+    def get_actor_names(self, count = 7):
+        if (self.movie != None):
+            count = min(count, len(self.movie['cast']))
+            return sorted(
+                [(actor['name'], actor.notes)
+                for actor in self.movie['cast']][:count],
+                key = lambda x: x[0])
+        else:
+            return []
 
     def get_release_info(self):
         pass
