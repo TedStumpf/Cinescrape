@@ -45,7 +45,10 @@ class IMDb_Movie():
         pass
 
     def get_ratings(self):
-        pass
+        if (self.movie != None):
+            return self.movie['rating']
+        else:
+            return None
 
 def get_movie_list(movie_name, count = 5):
     pass
