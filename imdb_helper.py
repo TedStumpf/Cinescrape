@@ -42,7 +42,10 @@ class IMDb_Movie():
             return []
 
     def get_release_info(self):
-        pass
+        if (self.movie != None):
+            return self.movie['original air date']
+        else:
+            return 0
 
     def get_ratings(self):
         if (self.movie != None):
