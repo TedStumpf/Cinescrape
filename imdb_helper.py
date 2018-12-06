@@ -7,7 +7,7 @@ class IMDb_Movie():
 
     def __init__(self, movie_name):
         dbobj = imdb.IMDb()
-        extra_info = ['awards', 'critic reviews', 'external reviews', 'full credits', 'keywords', 'main', 'quotes', 'release dates', 'release info']
+        extra_info = ['full credits', 'keywords', 'main', 'release dates']
         
         search_result = dbobj.search_movie(movie_name)
         if (len(search_result) > 0):
