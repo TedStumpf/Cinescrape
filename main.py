@@ -10,7 +10,12 @@ def print_movie_info(movie):
 	pass
 
 def main():
-	pass
+	print_intro()
+	mov = get_movie_from_search()
+	print_movie_info(mov)
+	#####################
+	#	Twitter goes here
+	#####################
 
 if __name__ == '__main__':
 	main()
