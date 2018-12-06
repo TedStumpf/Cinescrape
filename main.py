@@ -1,7 +1,7 @@
 #	main.py
 
 def print_intro():
-	pass
+	print("\n   Welcome to Cinescrape!")
 
 def get_movie_from_search():
 	pass
