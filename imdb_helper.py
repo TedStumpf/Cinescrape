@@ -5,16 +5,21 @@ import imdb
 
 class IMDb_Movie():
 
-    def __init__(self, movie_name):
+    def __init__(self, movie_name, existing_movie = None):
         dbobj = imdb.IMDb()
         extra_info = ['full credits', 'keywords', 'main', 'release dates']
         
-        search_result = dbobj.search_movie(movie_name)
-        if (len(search_result) > 0):
-            self.movie = search_result[0]
-            dbobj.update(self.movie, info = extra_info)
+        if (existing_movie == None):
+            search_result = dbobj.search_movie(movie_name)
+            if (len(search_result) > 0):
+                self.movie = search_result[0]
+                dbobj.update(self.movie, info = extra_info)
+            else:
+                self.movie = None
         else:
-            self.movie = None
+            self.movie = existing_movie
+            dbobj.update(self.movie, info = extra_info)
+
 
     def get_director_names(self):
         if (self.movie != None):
