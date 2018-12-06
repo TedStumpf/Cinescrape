@@ -36,6 +36,15 @@ class IMDb_Movie():
         else:
             return "No movie found"
 
+    def get_long_title(self):
+        if (self.movie != None):
+            if ('title' in self.movie.keys()):
+                return self.movie['long imdb title']
+            else:
+                return "No title found"
+        else:
+            return "No movie found"
+
     def get_actor_names(self, count = 7):
         if (self.movie != None):
             count = min(count, len(self.movie['cast']))
