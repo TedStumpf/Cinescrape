@@ -68,4 +68,12 @@ class IMDb_Movie():
             return None
 
 def get_movie_list(movie_name, count = 5):
-    pass
+    out = []
+
+    dbobj = imdb.IMDb()
+    search_result = dbobj.search_movie(movie_name)
+
+    for i in range(min(count, len(search_result))):
+        tup = (search_result[i]['long imdb title'], search_result[i])
+        out.append(tup)
+    return out
