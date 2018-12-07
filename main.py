@@ -33,7 +33,22 @@ def get_movie_from_search():
         return mov_list[inum - 1][1]
 
 def print_movie_info(movie):
-    pass
+    expanded = imdb_helper.IMDb_Movie(movie['title'], movie)
+    print("\n   Printing data for", expanded.get_long_title())
+    print("   IMDb Rating: ", expanded.get_ratings())
+
+    print("\n   Actors:")
+    for actor, role in expanded.get_actor_names(5):
+        print("     ", actor, " - ", role)
+        
+    print("\n   Directors:")
+    for direct in expanded.get_director_names():
+        print("     ", direct)
+
+    print("\n   Release Info:")
+    info = expanded.get_release_info()
+    print("     ", info)
+
 
 def main():
     print_intro()
